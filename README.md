@@ -26,7 +26,41 @@ Firstly, most annotations have been prepared by [1], please download [annotation
 
 Secondly, please download the [evaluation tools](https://pan.baidu.com/s/1vP7Mt1gLLvn4HNxxOvSYxg) (Access code: xh6e) and extarct it in the project root directory.
 
-Then, visual features are computed with the code provided by [2]. To reproduce our result, please download the COCO features file in [ResNeXt_101/trainval](https://pan.baidu.com/s/1s4B7JCrIk7CrQoFx5WOgjQ) (Access code:bnvu) and extract it as X101_grid_feats_coco_trainval.hdf5.
+Then, visual features are computed with the code provided by [2]. To reproduce our result, please download the COCO features file in ResNeXt_101/trainval and extract it as X101_grid_feats_coco_trainval.hdf5.
+
+## Evaluation
+To reproduce the results reported in our paper, download the pretrained model file [DSNT.pth](https://pan.baidu.com/s/164dndxWvI1FN7kNtftmzSA) (Access code:gvnn) and place it in the code folder.
+
+Run `python test.py` using the following arguments:
+
+| Argument | Possible values |
+|------|------|
+| `--batch_size` | Batch size (default: 40) |
+| `--workers` | Number of workers (default: 8) |
+| `--features_path` | Path to detection features file |
+| `--annotation_folder` | Path to folder with COCO annotations |
+
+
+## Training procedure
+Run `python train.py` using the following arguments:
+
+| Argument | Possible values |
+|------|------|
+| `--exp_name` | Experiment name|
+| `--batch_size` | Batch size (default: 40) |
+| `--workers` | Number of workers (default: 8) |
+| `--head` | Number of heads (default: 4) |
+| `--resume_last` | If used, the training will be resumed from the last checkpoint. |
+| `--resume_best` | If used, the training will be resumed from the best checkpoint. |
+| `--features_path` | Path to detection features file |
+| `--annotation_folder` | Path to folder with COCO annotations |
+| `--logs_folder` | Path folder for tensorboard logs (default: "tensorboard_logs")|
+
+For example, to train our model with the parameters used in our experiments, use
+```
+python train.py --exp_name ZH --batch_size 40 --head 4 --features_path /path/to/features --annotation_folder /path/to/annotations
+```
+
 
 #### References
 [1] Cornia, M., Stefanini, M., Baraldi, L., & Cucchiara, R. (2020). Meshed-memory transformer for image captioning. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.  
