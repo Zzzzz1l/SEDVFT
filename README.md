@@ -29,7 +29,6 @@ Secondly, please download the [evaluation tools](https://pan.baidu.com/s/1vP7Mt1
 Then, visual features are computed with the code provided by [2]. To reproduce our result, please download the COCO features file in ResNeXt_101/trainval and extract it as X101_grid_feats_coco_trainval.hdf5.
 
 ## Evaluation
-To reproduce the results reported in our paper, download the pretrained model file [DSNT.pth](https://pan.baidu.com/s/164dndxWvI1FN7kNtftmzSA) (Access code:gvnn) and place it in the code folder.
 
 Run `python test.py` using the following arguments:
 
